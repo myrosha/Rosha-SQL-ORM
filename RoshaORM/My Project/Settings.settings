@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="CreateProcInsert" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CREATE PROCEDURE {0} 
+{1}
+AS
+BEGIN
+	Insert Into {2} Values ({3})
+Select @@Identity
+END</Value>
+    </Setting>
+    <Setting Name="CreateProcUpdate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CREATE PROCEDURE {0}
+	{1}
+AS
+BEGIN
+	Update {2} SET {3} Where ID=@ID
+END</Value>
+    </Setting>
+    <Setting Name="CreateProcSelect" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CREATE PROCEDURE {0}
+	AS
+BEGIN
+	Select * From {1}
+END</Value>
+    </Setting>
+    <Setting Name="CreateProcDelete" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CREATE PROCEDURE {0}
+@ID int
+	AS
+BEGIN
+	Delete From  {1} Where ID=@ID
+END
+</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
