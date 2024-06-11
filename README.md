@@ -50,11 +50,26 @@ Dim ORM As ORM
    Dim SQLConnetction As New Framework.SQL.Connection
   ```
 
- If SQl Server Instaled Standard and Windows Auth Just Use This Code
+ If SQl Server Instaled Standard and Windows Auth
+ If SQl Server Instaled Standard and Windows AuthJust Use This Code
 
 ```
  Dim SQLConnetction As New Framework.SQL.Connection(%DataBase Name%)
 ```
 * Database Name : The name of the database you want to create in SQL Server for the project
+
+ Else complete Other Properties of SQLConnection
+
+ ```
+ SQLConnetction.TrustedConnection = False
+ SQLConnetction.Server = "%ServerAddress%"
+ SQLConnetction.UserName = "%SQLUserName%"
+ SQLConnetction.Password = "%SQLPassword%"
+```
+
+* TrustedConnection : Set to False if Use SQl Auth (Boolean)
+* ServerAddress : SQL Server Address and SQL Instance
+* SQLUserName : SQL Server UserName
+* SQLPassword : SQL Server Password
 
   
