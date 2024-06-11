@@ -221,4 +221,4 @@ Imports RoshaORM.Rosha.Framework.SQL
 
 Enjoy All models are built inside SQL.
 
-<p align="center"><img width="400" src="https://myrosha.ir/Images/SQL1.png" alt="Image"></p>
+<p align="center"><img width="800" src="https://myrosha.ir/Images/SQL1.png" alt="Image"></p>
