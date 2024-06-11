@@ -34,14 +34,14 @@ Dim ORM As ORM
 4- Add Sync Method to Form,Page or Class
 
 ```
-    Public Sub SyncStart(sender As Object, ByRef e As ORM.Events.SyncStartEvent)
-    End Sub
+   Public Sub SyncStart(sender As Object, ByRef e As ORM.Events.SyncStartEvent)
+   End Sub
 ```
 
 5- Add Event Handle to Load Form or Page or Component
 
 ```
-        AddHandler ORM.SyncStart, AddressOf SyncStart
+   AddHandler ORM.SyncStart, AddressOf SyncStart
 ```
 
 6- Create SQL Connection Instance
@@ -77,4 +77,36 @@ Dim ORM As ORM
 
 ```
  ORM = New ORM(SQLConnetction)
+```
+
+8- Create Objects Model
+
+```
+  Public Class Users
+     Inherits EntityModel
+     Property UserName As String
+     Property Password As String
+     Property Description As String
+     Property Enable As Boolean
+     Property Role As New List(Of Roles)
+
+     Sub New()
+
+     End Sub
+ End Class
+ Public Class Roles
+     Inherits EntityModel
+     Property Name As String = ""
+     Property Description As String
+     Sub New()
+
+     End Sub
+ End Class
+ Public Class User_Role
+     Property UserID As Integer = 0
+     Property RoleID As Integer = 0
+     Sub New()
+
+     End Sub
+ End Class
 ```
