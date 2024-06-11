@@ -12,7 +12,7 @@
 ## .NET Version
 .Net Framework 4.8
 
-## Install & Upgrade
+## Install
 Just Download and Add to Project
 
 ##How to Use
@@ -23,4 +23,23 @@ Just Download and Add to Project
 
 ```
 Imports RoshaORM.Rosha
+```
+
+3- Create an Instance of ORM 
+
+```
+Dim ORM As ORM
+```
+
+4- Add Syn Method to Form,Page or Class
+
+```
+    Public Sub SyncStart(sender As Object, ByRef e As ORM.Events.SyncStartEvent)
+    End Sub
+```
+
+5- Add Event Handle to Load Form or Page or Component
+
+```
+        AddHandler ORM.SyncStart, AddressOf SyncStart
 ```
