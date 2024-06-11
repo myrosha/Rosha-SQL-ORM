@@ -111,3 +111,4 @@ Dim ORM As ORM
  End Class
 ```
 * There is no need to create an ID. ID is created automatically in the model.
+* Add Inherits EntityModel to All Models
