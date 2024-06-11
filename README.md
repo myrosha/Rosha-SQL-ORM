@@ -112,3 +112,8 @@ Dim ORM As ORM
 ```
 * There is no need to create an ID. ID is created automatically in the model.
 * Add Inherits EntityModel to All Models
+
+9- Add Attributes to Model Fields
+
+## Attributes
+
