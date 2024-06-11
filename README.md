@@ -164,6 +164,7 @@ Imports RoshaORM.Rosha.Framework.SQL
      End Sub
  End Class
  Public Class User_Role
+     Inherits EntityModel
      <SQLType(SQLDataTypes.int)>
      Property UserID As Integer = 0
      <SQLType(SQLDataTypes.int)>
@@ -172,4 +173,40 @@ Imports RoshaORM.Rosha.Framework.SQL
 
      End Sub
  End Class
+```
+
+10- Add Models to ORM and Sync it
+
+```
+  e.Objects.Add(New Models.Users)
+  e.Objects.Add(New Models.User_Role)
+  e.Objects.Add(New Models.Roles)
+```
+
+* if You Whant Add Default Record In Table Use This Code
+
+```
+    Public Sub SyncStart(sender As Object, ByRef e As ORM.Events.SyncStartEvent)
+        Dim User As New Users With {
+            .UserName = "Admin",
+            .Password = "1234560",
+            .Description = "Admin User",
+            .Enable = True
+        }
+        Dim UserRole As New User_Role With {
+            .UserID = 1,
+            .RoleID = 1
+        }
+        Dim Role As New Roles With {
+            .Name = "Admin",
+            .Description = "Admin Role"
+        }
+        e.Objects.Add(User)
+        e.Objects.Add(UserRole)
+        e.Objects.Add(Role)
+    End Sub
+```
+  
+```
+  ORM.StartSync()
 ```
