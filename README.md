@@ -46,6 +46,7 @@ Dim ORM As ORM
 
 6- Create SQL Connection
 <details>
+     <summary>Click for SQL Connection Information</summary>
     ## SQLConnection
     # Usage
 <details>
