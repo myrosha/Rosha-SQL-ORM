@@ -38,13 +38,7 @@ Dim ORM As ORM
    End Sub
 ```
 
-5- Add Event Handle to Load Form or Page or Component
-
-```
-   AddHandler ORM.SyncStart, AddressOf SyncStart
-```
-
-6- Create SQL Connection Instance
+5- Create SQL Connection Instance
 
   ```
    Dim SQLConnetction As New Framework.SQL.Connection
@@ -73,13 +67,14 @@ Dim ORM As ORM
 * SQLUserName : SQL Server UserName
 * SQLPassword : SQL Server Password
 
-7- Set ORM Instance
+6- Set ORM Instance and Add Sync Handler
 
 ```
  ORM = New ORM(SQLConnetction)
+ AddHandler ORM.SyncStart, AddressOf SyncStart
 ```
 
-8- Create Objects Model
+7- Create Objects Model
 
 ```
   Public Class Users
@@ -113,7 +108,7 @@ Dim ORM As ORM
 * There is no need to create an ID. ID is created automatically in the model.
 * Add Inherits EntityModel to All Models
 
-9- Add Attributes to Model Fields
+8- Add Attributes to Model Fields
 
 ## Attributes
 
@@ -175,7 +170,7 @@ Imports RoshaORM.Rosha.Framework.SQL
  End Class
 ```
 
-10- Add Models to ORM
+9- Add Models to ORM
 
 ```
      Public Sub SyncStart(sender As Object, ByRef e As ORM.Events.SyncStartEvent)
@@ -213,7 +208,7 @@ Imports RoshaORM.Rosha.Framework.SQL
 ```
 * HasDefaultValue : Set to True For Insert Model Fields Values To Database
   
-11- Syn ORM
+10- Syn ORM
 
 ```
   ORM.StartSync()
@@ -222,3 +217,47 @@ Imports RoshaORM.Rosha.Framework.SQL
 Enjoy All models are built inside SQL.
 
 <p align="center"><img width="800" src="https://myrosha.ir/Images/SQL1.png" alt="Image"></p>
+
+
+## Add or Update Item
+Use This Code To Add Item To Table
+
+```
+           Dim User As New Users With {
+            .UserName = "User1",
+            .Password = "1234560",
+            .Description = "User 1",
+            .Enable = True
+        }
+        User.Save()
+```
+
+To Update Item User This Code
+
+```
+  Dim Users As List(Of Users) = (New Users).GetData
+  Dim SelectedUser As Users = Users(1)
+  SelectedUser.UserName = "User2"
+  SelectedUser.Save()
+```
+
+## Get Data From Entity
+
+```
+   Dim Users As List(Of Users) = (New Users).GetData
+```
+
+If Need Get Filtered Data Use This Code
+
+```
+   Dim Users As List(Of Users) = (New Users).GetData
+```
+
+## Delete Item
+
+```
+  Dim Users As List(Of Users) = (New Users).GetData
+  Dim SelectedUser As Users = Users(1)
+  SelectedUser.Delete()
+```
+
