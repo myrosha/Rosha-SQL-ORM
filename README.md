@@ -31,7 +31,7 @@ Imports RoshaORM.Rosha
 Dim ORM As ORM
 ```
 
-4- Add Syn Method to Form,Page or Class
+4- Add Sync Method to Form,Page or Class
 
 ```
     Public Sub SyncStart(sender As Object, ByRef e As ORM.Events.SyncStartEvent)
@@ -43,3 +43,9 @@ Dim ORM As ORM
 ```
         AddHandler ORM.SyncStart, AddressOf SyncStart
 ```
+
+6- Create SQL Connection
+<details>
+    ## SQLConnection
+    # Usage
+<details>
