@@ -175,38 +175,50 @@ Imports RoshaORM.Rosha.Framework.SQL
  End Class
 ```
 
-10- Add Models to ORM and Sync it
+10- Add Models to ORM
 
 ```
-  e.Objects.Add(New Models.Users)
-  e.Objects.Add(New Models.User_Role)
-  e.Objects.Add(New Models.Roles)
+     Public Sub SyncStart(sender As Object, ByRef e As ORM.Events.SyncStartEvent)
+         e.Objects.Add(New Models.Users)
+         e.Objects.Add(New Models.User_Role)
+         e.Objects.Add(New Models.Roles)
+     End Sub
 ```
 
 * if You Whant Add Default Record In Table Use This Code
 
 ```
     Public Sub SyncStart(sender As Object, ByRef e As ORM.Events.SyncStartEvent)
-        Dim User As New Users With {
+         Dim User As New Users With {
             .UserName = "Admin",
             .Password = "1234560",
             .Description = "Admin User",
-            .Enable = True
+            .Enable = True,
+            .HasDefaultValue = True
         }
         Dim UserRole As New User_Role With {
             .UserID = 1,
-            .RoleID = 1
+            .RoleID = 1,
+            .HasDefaultValue = True
         }
         Dim Role As New Roles With {
             .Name = "Admin",
-            .Description = "Admin Role"
+            .Description = "Admin Role",
+            .HasDefaultValue = True
         }
         e.Objects.Add(User)
         e.Objects.Add(UserRole)
         e.Objects.Add(Role)
     End Sub
 ```
+* HasDefaultValue : Set to True For Insert Model Fields Values To Database
   
+11- Syn ORM
+
 ```
   ORM.StartSync()
 ```
+
+Enjoy All models are built inside SQL.
+
+<p align="center"><img width="400" src="https://myrosha.ir/Images/SQL1.png" alt="Image"></p>
