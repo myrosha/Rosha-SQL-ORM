@@ -44,10 +44,17 @@ Dim ORM As ORM
         AddHandler ORM.SyncStart, AddressOf SyncStart
 ```
 
-6- Create SQL Connection
-
-  # Create SQL Connection Instance
+6- Create SQL Connection Instance
 
   ```
    Dim SQLConnetction As New Framework.SQL.Connection
   ```
+
+ If SQl Server Instaled Standard and Windows Auth Just Use This Code
+
+```
+ Dim SQLConnetction As New Framework.SQL.Connection(%DataBase Name%)
+```
+* Database Name : The name of the database you want to create in SQL Server for the project
+
+  
