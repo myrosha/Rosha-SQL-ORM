@@ -15,7 +15,7 @@
 ## Install
 Just Download and Add to Project
 
-##How to Use
+## How to Use
 
 1- Add Refrence To Project
 
@@ -223,13 +223,13 @@ Enjoy All models are built inside SQL.
 Use This Code To Add Item To Table
 
 ```
-           Dim User As New Users With {
-            .UserName = "User1",
-            .Password = "1234560",
-            .Description = "User 1",
-            .Enable = True
-        }
-        User.Save()
+  Dim User As New Users With {
+       .UserName = "User1",
+       .Password = "1234560",
+       .Description = "User 1",
+       .Enable = True
+  }
+  User.Save()
 ```
 
 To Update Item User This Code
