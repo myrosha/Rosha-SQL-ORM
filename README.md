@@ -61,15 +61,20 @@ Dim ORM As ORM
  Else complete Other Properties of SQLConnection
 
  ```
+ Dim SQLConnetction As New Framework.SQL.Connection(%DataBase Name%)
  SQLConnetction.TrustedConnection = False
  SQLConnetction.Server = "%ServerAddress%"
  SQLConnetction.UserName = "%SQLUserName%"
  SQLConnetction.Password = "%SQLPassword%"
-```
-
+ ```
+* Database Name : The name of the database you want to create in SQL Server for the project
 * TrustedConnection : Set to False if Use SQl Auth (Boolean)
 * ServerAddress : SQL Server Address and SQL Instance
 * SQLUserName : SQL Server UserName
 * SQLPassword : SQL Server Password
 
-  
+7- Set ORM Instance
+
+```
+ ORM = New ORM(SQLConnetction)
+```
