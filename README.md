@@ -129,3 +129,47 @@ Dim ORM As ORM
   - JoinTo : Table Name of Tables For Join to it
   - TargetKey : Condination of Joine Table : Default Check with Parrent.ID
   - ParentKey : Return Field of JoinTo
+
+```
+Imports RoshaORM.Rosha.CustomAttributes
+Imports RoshaORM.Rosha.Framework.SQL
+```
+
+```
+ Public Class Users
+     Inherits EntityModel
+     <SQLType(SQLDataTypes.Varchar)> <Size(50)> <NotNULL>
+     Property UserName As String
+     <SQLType(SQLDataTypes.Varchar)> <Size(100)> <NotNULL>
+     Property Password As String
+     <SQLType(SQLDataTypes.NVarchar)> <Size(500)>
+     Property Description As String
+     <SQLType(SQLDataTypes.Bit)>
+     Property Enable As Boolean
+     <Ignore> <Joinable("User_Role UserID ID,Roles ID ID")>
+     Property Role As New List(Of Roles)
+
+     Sub New()
+
+     End Sub
+ End Class
+ Public Class Roles
+     Inherits EntityModel
+     <SQLType(SQLDataTypes.NVarchar)> <Size(50)>
+     Property Name As String = ""
+     <SQLType(SQLDataTypes.NVarchar)> <Size(500)>
+     Property Description As String
+     Sub New()
+
+     End Sub
+ End Class
+ Public Class User_Role
+     <SQLType(SQLDataTypes.int)>
+     Property UserID As Integer = 0
+     <SQLType(SQLDataTypes.int)>
+     Property RoleID As Integer = 0
+     Sub New()
+
+     End Sub
+ End Class
+```
