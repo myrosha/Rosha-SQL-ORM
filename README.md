@@ -117,3 +117,15 @@ Dim ORM As ORM
 
 ## Attributes
 
+* IsIdentity : User For Create Identity Field
+* NotNULL : Set NotNULL Field
+* Ignore : Ignore Field And Don't Create in Database
+* Size : Set Fiels Size (Integer)
+* SQLType : Set Field Type
+* PK : Set Field as Primary Key
+* Joinable : Set Field With Multi Join Tables (String) : Sample <Joinable("%JoinTo% %TargetKey% %ParentKey%")>
+
+  - Split Join Data With ,
+  - JoinTo : Table Name of Tables For Join to it
+  - TargetKey : Condination of Joine Table : Default Check with Parrent.ID
+  - ParentKey : Return Field of JoinTo
