@@ -44,8 +44,7 @@ Dim ORM As ORM
    Dim SQLConnetction As New Framework.SQL.Connection
   ```
 
- If SQl Server Instaled Standard and Windows Auth
- If SQl Server Instaled Standard and Windows AuthJust Use This Code
+ If SQl Server Instaled Standard and Windows Auth Just Use This Code
 
 ```
  Dim SQLConnetction As New Framework.SQL.Connection(%DataBase Name%)
